@@ -12,6 +12,8 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     {
         base.OnModelCreating(builder);
 
+        // asdhasjdgah
+        
         builder.Entity<StudentEntity>(entity =>
         {
             entity.ToTable("students");
