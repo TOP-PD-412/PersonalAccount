@@ -26,4 +26,17 @@ public class StudentRepo<T>(AppDbContext context, IMapper<StudentEntity, T> mapp
             .FirstOrDefaultAsync(entity => entity.Email == email);
         return mapper.ToModel(entity);
     }
+
+    public async Task UpdateByIdAsync(int id, StudentModel student)
+    {
+        var entity = await Students.FirstOrDefaultAsync(s => s.Id == id);
+
+        if (entity != null)
+        {
+            entity.FullName = student.FullName;
+            entity.GroupName = student.GroupName;
+            entity.PhotoUrl = student.PhotoUrl?.ToString(); 
+            await context.SaveChangesAsync();
+        }
+    }
 }
