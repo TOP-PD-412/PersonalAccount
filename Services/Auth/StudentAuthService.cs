@@ -40,5 +40,10 @@ namespace PersonalAccount.Services.Auth
         }
 
         public async Task SignOutAsync(HttpContext ctx) => await ctx.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        public async Task UpdateByIdAsync(int id, StudentModel student)
+        {
+            await students.UpdateByIdAsync(id, student);
+        }
     }
 }
