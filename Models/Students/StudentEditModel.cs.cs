@@ -12,6 +12,6 @@ namespace PersonalAccount.Models.Students
         [StringLength(255, ErrorMessage = "Name cannot be longer than 255 characters")]
         public string GroupName { get; set; } = string.Empty;
 
-        public string? PhotoUrl { get; set; }
+        public Uri? PhotoUrl { get; set; }
     }
 }
